@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :ingredient do
-    name "MyString"
+    name { Faker::Name.first_name }
+    # name "soy sauce"
   end
-
 end
