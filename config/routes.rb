@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # change routes - look at making api routes like  JSON api example
+  root to: 'ingredients#index'
   resources :ingredients
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

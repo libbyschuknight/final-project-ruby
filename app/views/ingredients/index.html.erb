@@ -1,1 +1,12 @@
+<!-- This is test page for me as am just getting back into writing some Ruby and Rails.
+ -->
+
 <h2>This is the index page for ingredients</h2>
+
+<ul>
+  <% @ingredients.each do |ingredient| %>
+    <li>
+      <%= ingredient.name %>
+    </li>
+  <% end %>
+</ul>
