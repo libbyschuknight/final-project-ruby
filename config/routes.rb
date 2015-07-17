@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meals
   # change routes - look at making api routes like  JSON api example
   root to: 'ingredients#index'
   resources :ingredients
