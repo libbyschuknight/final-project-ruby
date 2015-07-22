@@ -1,0 +1,11 @@
+<h2>this displays a list of the meals</h2>
+
+<ul>
+  <% @meals.each do |meal| %>
+    <li>
+      <strong><%= meal.name %></strong>
+      <img src="<%= meal.imageURL %>">
+      <p><%= meal.cooking_instructions %></p>
+    </li>
+  <% end %>
+</ul>
