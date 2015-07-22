@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe MealsController, type: :controller do
 
   before do
-    Meal.destroy.all
+    Meal.destroy_all
   end
 
 
@@ -13,10 +13,9 @@ RSpec.describe MealsController, type: :controller do
     end
 
     it "finds a list of meals" do
-      get
+      get :index, meals: @meals
+      expect(assigns(:meals)).to eq(@meals)
     end
 
-
   end
-
 end
