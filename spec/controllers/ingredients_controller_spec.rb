@@ -5,7 +5,7 @@ RSpec.describe IngredientsController, type: :controller do
     Ingredient.destroy_all
   end
 
-  xdescribe "#index" do
+  describe "#index" do
     before do
       @ingredients = FactoryGirl.create_list(:ingredient, 5)
     end
