@@ -43,6 +43,8 @@ group :development, :test do
   gem 'spring'
   gem 'faker'
 
+  # gem 'normalize-rails'
+
   gem 'rspec-rails', '~> 3.2.1'
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.5.0'

@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  /*border: 1px solid black;*/
+  margin: 2%;
+}
+
+
+img {
+  width: 150px;
+}
