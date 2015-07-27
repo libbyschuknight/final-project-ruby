@@ -17,11 +17,38 @@ feature "User can view a list of meals on the home page" do
 
     expect(page).to have_content("Beef Noodle Soup")
     expect(page).to have_content("Five Spice Pork")
-
-    # how would I test that it is displaying an image????
-    # expect(page).to have_content("http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg")
-
   end
+
+
+  scenario "it shows a meal image" do
+    visit meals_path(@meals)
+
+    expect(page).to have_css("img[src*='http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg']")
+  end
+
+
+
+# describe "check images and favicon" do
+#   before { visit "url/to/check")
+
+#   it "should have the images" do
+#     page.should have_css('img', text: "image1.jpg")
+
+#   it "should have the favicon" do
+#     page.should have_xpath("/html/head/link[@href='favicon.ico']"
+#   end
+# end
+
+
+
+
+  # scenario "user clicks meal image and is redircted to the meal page" do
+
+
+  # end
+
+
+
 
 end
 
