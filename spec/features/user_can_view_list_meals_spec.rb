@@ -12,7 +12,7 @@ feature "User can view a list of meals on the home page" do
     FactoryGirl.create(:meal, name: "Five Spice Pork", imageURL: "http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg", cooking_instructions: "Heat half the oil in a wok over high heat. Add one-third of the pork and stir-fry for 5 minutes or until brown all over. Transfer to a plate. Repeat, in 2 more batches, with the remaining pork. Step 2 Heat remaining oil in wok over medium heat. Add eschalot and garlic and cook for 5 minutes or until golden. Add pork, soy sauce, palm sugar, water, star anise and five spice. Bring to the boil. Reduce heat to low and cook, covered, stirring occasionally, for 1 1/2 hours or until pork is tender. Increase heat to high and bring to the boil. Cook for 10 minutes or until sauce thickens. Step 3 Add the fish sauce and half the shallot and stir to combine. Place in a serving bowl. Top with remaining shallot. Serve with steamed rice topped with cucumber and coriander leaves.", likes: 0, dislikes: 0)
   end
 
-  scenario "it shows a list of meals, only showing name and the image" do
+  scenario "it shows a list of meals" do
     visit meals_path(@meals)
 
     expect(page).to have_content("Beef Noodle Soup")
@@ -27,28 +27,14 @@ feature "User can view a list of meals on the home page" do
   end
 
 
+  scenario "user clicks meal image and is redircted to the meal page" do
+    visit meals_path(@meals)
+    click_on("http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg")
 
-# describe "check images and favicon" do
-#   before { visit "url/to/check")
+    expect(page).to have_content("Five Spice Pork")
+    expect(page).to have_content("Heat half the oil in a wok over high heat. Add one-third of the pork and stir-fry for 5 minutes or until brown all over. Transfer to a plate. Repeat, in 2 more batches, with the remaining pork. Step 2 Heat remaining oil in wok over medium heat. Add eschalot and garlic and cook for 5 minutes or until golden. Add pork, soy sauce, palm sugar, water, star anise and five spice. Bring to the boil. Reduce heat to low and cook, covered, stirring occasionally, for 1 1/2 hours or until pork is tender. Increase heat to high and bring to the boil. Cook for 10 minutes or until sauce thickens. Step 3 Add the fish sauce and half the shallot and stir to combine. Place in a serving bowl. Top with remaining shallot. Serve with steamed rice topped with cucumber and coriander leaves.")
 
-#   it "should have the images" do
-#     page.should have_css('img', text: "image1.jpg")
-
-#   it "should have the favicon" do
-#     page.should have_xpath("/html/head/link[@href='favicon.ico']"
-#   end
-# end
-
-
-
-
-  # scenario "user clicks meal image and is redircted to the meal page" do
-
-
-  # end
-
-
-
+  end
 
 end
 
