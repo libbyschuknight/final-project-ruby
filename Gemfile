@@ -5,6 +5,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
+
+# Added as suggested by Heroku - Getting Started with Rails 4
+gem 'rails_12factor'
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -16,6 +21,9 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+
+
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
