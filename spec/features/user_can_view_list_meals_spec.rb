@@ -27,7 +27,7 @@ feature "User can view a list of meals on the home page" do
   end
 
 
-  scenario "user clicks meal image and is redircted to the meal page" do
+  scenario "user clicks meal image and is redircted to meal page" do
     visit meals_path(@meals)
     find(:xpath, "//a/img[@src='http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg']/..").click
 

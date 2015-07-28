@@ -2,7 +2,7 @@
 
 <ul>
   <% @meals.each do |meal| %>
-    <li>
+    <li class="meal-home">
       <strong><%= meal.name %></strong>
       <%= link_to (image_tag (meal.imageURL)), meal_path(meal) %>
     </li>
