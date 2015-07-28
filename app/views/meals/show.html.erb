@@ -1,0 +1,22 @@
+<h1>This is an individual meal page</h1>
+
+<h2> <%= @meal.name %> </h2>
+
+
+<%= image_tag @meal.imageURL, {width: "300"} %>
+
+<h4>Cooking Instructions</h4>
+<p> <%= @meal.cooking_instructions %> </p>
+
+<p>Likes: <%= @meal.likes %> </p>
+<p>Dislikes: <%= @meal.dislikes %> </p>
+
+
+
+<% @meal.ingredients.each do |ingredient|  %>
+  <%= ingredient.name %>
+<% end %>
+
+<% @meal.meal_ingredients.each do |ingredient|  %>
+  <%= ingredient.quantity%>
+<% end %>

@@ -48,5 +48,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.2.1'
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.5.0'
+
+  gem 'launchy', '~> 2.4.3'
 end
 

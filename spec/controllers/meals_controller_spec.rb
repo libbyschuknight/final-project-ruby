@@ -16,6 +16,18 @@ RSpec.describe MealsController, type: :controller do
       get :index, meals: @meals
       expect(assigns(:meals)).to eq(@meals)
     end
-
   end
+
+
+  describe "#show" do
+    before do
+      @meal = FactoryGirl.create(:meal)
+    end
+
+    it "finds a meal" do
+      get :show, id: @meal.id
+      expect(assigns(:meal).id).to eq(@meal.id)
+    end
+  end
+
 end
