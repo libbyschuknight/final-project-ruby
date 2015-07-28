@@ -6,6 +6,7 @@ require 'rails_helper'
 
 feature "User can view a meal" do
   let(:meal) { FactoryGirl.create(:meal, name: "Five Spice Pork", imageURL: "http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg")}
+  # let(:) { FactoryGirl.create(:meal, name: "Five Spice Pork", imageURL: "http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg")} ????
 
   background { visit meal_path(meal) }
 
@@ -21,6 +22,11 @@ feature "User can view a meal" do
     expect(page).to have_xpath("//image[@src = 'http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg']")
   end
 
+
+  scenario "it shows the ingredient details" do
+    expect(page).to have_content("spring onions")
+
+  end
 
 end
 
