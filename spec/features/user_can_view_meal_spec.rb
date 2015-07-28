@@ -5,23 +5,20 @@ require 'rails_helper'
 # end
 
 feature "User can view a meal" do
-  let(:meal) { FactoryGirl.create(:meal, name: "Five Spice Pork", imageURL: "http://meal.png")}
+  let(:meal) { FactoryGirl.create(:meal, name: "Five Spice Pork", imageURL: "http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg")}
 
   background { visit meal_path(meal) }
 
 
   scenario "it shows a meals' details" do
-
-    save_and_open_page
-    puts page.body
-
+    # save_and_open_page
+    # puts page.body
     expect(page).to have_content(meal.name)
     expect(page).to have_content("Five Spice Pork")
-    expect(page).to have_css("img")
+  end
 
-
-    # expect(page).to have_css("img", "asdh")
-
+  scenario "it shows a meals' image" do
+    expect(page).to have_xpath("//image[@src = 'http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg']")
   end
 
 
