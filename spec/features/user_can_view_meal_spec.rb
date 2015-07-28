@@ -1,0 +1,31 @@
+require 'rails_helper'
+
+# RSpec.feature "UserCanViewMeals", type: :feature do
+#   pending "add some scenarios (or delete) #{__FILE__}"
+# end
+
+feature "User can view a meal" do
+  let(:meal) { FactoryGirl.create(:meal, name: "Five Spice Pork", imageURL: "http://meal.png")}
+
+  background { visit meal_path(meal) }
+
+
+  scenario "it shows a meals' details" do
+
+    save_and_open_page
+
+    puts page.body
+
+    expect(page).to have_content(meal.name)
+    expect(page).to have_content("Five Spice Pork")
+    expect(page).to have_css("img")
+    puts page.body
+
+
+    # expect(page).to have_css("img", "asdh")
+
+  end
+
+
+end
+
