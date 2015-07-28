@@ -13,13 +13,11 @@ feature "User can view a meal" do
   scenario "it shows a meals' details" do
 
     save_and_open_page
-
     puts page.body
 
     expect(page).to have_content(meal.name)
     expect(page).to have_content("Five Spice Pork")
     expect(page).to have_css("img")
-    puts page.body
 
 
     # expect(page).to have_css("img", "asdh")
