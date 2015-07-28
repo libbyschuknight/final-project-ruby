@@ -4,7 +4,7 @@
   <% @meals.each do |meal| %>
     <li>
       <strong><%= meal.name %></strong>
-      <img src="<%= meal.imageURL %>">
+      <%= link_to (image_tag (meal.imageURL)), meal_path(meal) %>
     </li>
   <% end %>
 </ul>
