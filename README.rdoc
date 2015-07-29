@@ -1,3 +1,5 @@
 == Ruby version of backend of www.pikadish.com
 
 Final cohort project for Phase 3 of EDA bootcamp. The backend was done during the project in C#.
+
+I have deployed this at http://pikadish-rubyrails.herokuapp.com/, it is still in development
