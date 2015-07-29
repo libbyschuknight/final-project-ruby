@@ -3,7 +3,7 @@ FactoryGirl.define do
     ingredient 1
     meal 1
     quantity 1.5
-    measurement "bananas"
+    measurement "whole"
   end
 
 end

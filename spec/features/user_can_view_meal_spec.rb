@@ -5,28 +5,48 @@ require 'rails_helper'
 # end
 
 feature "User can view a meal" do
-  let(:meal) { FactoryGirl.create(:meal, name: "Five Spice Pork", imageURL: "http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg")}
-  # let(:) { FactoryGirl.create(:meal, name: "Five Spice Pork", imageURL: "http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg")} ????
+  # let(:meal) { FactoryGirl.create(:meal, name: "Five Spice Pork", imageURL: "http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg")}
 
-  background { visit meal_path(meal) }
+  # let(:ingredient) { FactoryGirl.create(:ingredient, name: "spring onions")}
+
+  # let(:meal_ingredient) { FactoryGirl.create(:meal_ingredient, ingredient_id: ingredient.id, meal_id: meal.id, quantity: 2)}
+
+  background do
+    Meal.destroy_all
+    Ingredient.destroy_all
+    MealIngredient.destroy_all
+
+    @ingredient = Ingredient.create(name: "spring onions")
+    @meal = Meal.create(name: "Five Spice Pork", imageURL: "http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg", cooking_instructions: "Heat half the oil in a wok over high heat. Add spring onions", likes: 0, dislikes: 0)
+    MealIngredient.create(ingredient_id: @ingredient.id, meal_id: @meal.id, quantity: 5, measurement: "whole")
+
+    ## Couldn't get FactoryGirl working properly with creating meal_ingredients
+      # FactoryGirl.create(:meal, name: "Five Spice Pork", imageURL: "http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg")
+      # FactoryGirl.create(:ingredient, name: "spring onions")
+
+      # FactoryGirl.create(:meal_ingredient, ingredient_id: @ingredient.id, meal_id: meal.id, quantity: 2)
+
+    visit meal_path(@meal)
+  end
 
 
   scenario "it shows a meals' details" do
     # save_and_open_page
     # puts page.body
-    expect(page).to have_content(meal.name)
+    expect(page).to have_content(@meal.name)
     expect(page).to have_content("Five Spice Pork")
-    expect(page).to have_content("Heat half the oil in a wok over high heat. Add one-third of the pork and stir-fry for 5 minutes or until brown all over. Transfer to a plate. Repeat, in 2 more batches, with the remaining pork. Step 2 Heat remaining oil in wok over medium heat. Add eschalot and garlic and cook for 5 minutes or until golden. Add pork, soy sauce, palm sugar, water, star anise and five spice. Bring to the boil. Reduce heat to low and cook, covered, stirring occasionally, for 1 1/2 hours or until pork is tender. Increase heat to high and bring to the boil. Cook for 10 minutes or until sauce thickens. Step 3 Add the fish sauce and half the shallot and stir to combine. Place in a serving bowl. Top with remaining shallot. Serve with steamed rice topped with cucumber and coriander leaves.")
+    expect(page).to have_content("Heat half the oil in a wok over high heat. Add spring onions")
   end
 
   scenario "it shows a meals' image" do
-    expect(page).to have_xpath("//image[@src = 'http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg']")
+    expect(page).to have_css("img[src*='http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg']")
+    # expect(page).to have_xpath("//image[@src = 'http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg']")
   end
 
 
   scenario "it shows the ingredient details" do
     expect(page).to have_content("spring onions")
-
+    expect(page).to have_content("5.0")
   end
 
 end
