@@ -4,6 +4,9 @@ class Meal < ActiveRecord::Base
   belongs_to :mealPlan
 
 
-
+  def ingredient_details
+    @meal.ingredients
+    @meal.meal_ingredients
+  end
 
 end
