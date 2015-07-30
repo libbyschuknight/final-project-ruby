@@ -5,8 +5,22 @@ class Meal < ActiveRecord::Base
 
 
   def ingredient_details
-    @meal.ingredients
-    @meal.meal_ingredients
+    details = {}
+
+    puts "******INGREDIENTS******"
+    ingredients.each do |ingredient|
+      # push into hash!!!
+      puts ingredient.name
+    end
+
+    puts "+++++++++ meal_ingredients +++++++++"
+    # puts meal_ingredients
+
+    # "================="
+    meal_ingredients do |ingredient|
+      puts ingredient.quantity
+      puts ingredient.measurement
+    end
   end
 
 end

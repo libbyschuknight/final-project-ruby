@@ -5,35 +5,25 @@ class MealsController < ApplicationController
   end
 
   def show
-    @meal = Meal.find_by_id(params[:id])
+    @meal = Meal.find(params[:id])
+    @ingredient_details = @meal.ingredient_details
 
-    ing_meal_nums = @meal.meal_ingredients
+    # ing_meal_detail = @meal.meal_ingredients
+    # ing_name = @meal.ingredients
 
-    @meal_ingredients_info = {}
-
-
-
-
-    meal_hash = { name: ing.name, quantity: ing_qm.quantity, measurement: ing_qm.measurement }
-     => {:name=>"spring onions", :quantity=>5.0, :measurement=>"whole"}
-
-    meal_hash
-     => {:name=>"spring onions", :quantity=>5.0, :measurement=>"whole"}
+    # @meal_ingredients_info = {}
 
 
-    puts "******INGREDIENTS******"
-    @meal.ingredients.each do |ingredient|
-      puts ingredient.name
-    end
 
-    puts "+++++++++ meal_ingredients +++++++++"
-    # puts @meal.meal_ingredients
 
-    # "================="
-    @meal.meal_ingredients do |ingredient|
-      puts ingredient.quantity
-      puts ingredient.measurement
-    end
+    # meal_hash = { name: ing.name, quantity: ing_qm.quantity, measurement: ing_qm.measurement }
+    #  => {:name=>"spring onions", :quantity=>5.0, :measurement=>"whole"}
+
+    # meal_hash
+    #  => {:name=>"spring onions", :quantity=>5.0, :measurement=>"whole"}
+
+
+   ccc
 
 
     # @ingredient_info = Meal.ingredient_details
