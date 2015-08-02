@@ -4,69 +4,70 @@ class Meal < ActiveRecord::Base
   belongs_to :mealPlan
 
 
-  def ingredient_details
+  # def ingredient_details
+  #   meal = MealIngredient.find
+  #   details = MealIngredient.joins(:meal, :ingredient)
 
-    # Meal.joins(:ingredients, :meal_ingredients)
+  #   details.each do |item|
+  #     item
+  #   end
 
-    # meal = Item.find(item_id)
-    name = ingredients.where(:id => id)
-    quantity = meal_ingredients.where(:id => id)
-
-  end
+  # end
 
 
 
   # refactor - use join table in ActiveRecord to get same info
-  # def ingredient_details
-  #   details = {}
+  def ingredient_details
+    details = {}
 
-  #     # ingredients.each do |ingredient|
-  #     #   details["#{ingredient.name}"] = {}
-  #     #   details["#{ingredient.name}"]["name"] = ingredient.name
-  #     # end
+    # ingredients.each do |ingredient|
+    #   details["#{ingredient.id}"] = {}
+    #   details["#{ingredient.id}"]["name"] = ingredient.name
+    # end
 
-  #   ingredients.each do |ingredient|
-  #     details["#{ingredient.id}"] = {}
-  #     details["#{ingredient.id}"]["name"] = ingredient.name
-  #   end
-
-  #   # details.map do |key, value|
-  #   #   meal_ingredients.each do |ing|
-  #   #     details[key]["quantity"] = ing.quantity
-  #   #     details[key]["measurement"] = ing.measurement
-  #   #   end
-  #   # end
-
-  #   details.each do |key, value|
-  #     details[key]["quantity"] = MealIngredient.find(key).quantity
-  #     details[key]["measurement"] = MealIngredient.find(key).measurement
-  #   end
+    # details.each do |key, value|
+    #   details[key]["quantity"] = MealIngredient.find(key).quantity
+    #   details[key]["measurement"] = MealIngredient.find(key).measurement
+    # end
 
 
 
-  #   # meal_ingredients.each do |ing|
+    ingredients.each do |ingredient|
+      details["#{ingredient.name}"] = {}
+      details["#{ingredient.name}"]["name"] = ingredient.name
+    end
 
-  #   #   details["#{ingredient.name}"]["quantity"] = ing.quantity
-  #   #   details["#{ingredient.name}"]["measurement"] = ing.measurement
-  #   #   # value["measurement"] =ing.measurement
 
-
-  #   # end
-
-  #   # meal_ingredients.each do |ing|
-  #   #   details.each do |key, value|
-  #   #     key["quantity"] = ing.quantity
-  #   #   end
-  #   # end
+    meal_ingredients.each do |ing|
+      details.map do |key, value|
+        details[key]["quantity"] = ing.quantity
+        details[key]["measurement"] = ing.measurement
+      end
+    end
 
 
 
 
-  #   # books[:matz]  = "The Ruby Language"
 
-  #   details
+    # meal_ingredients.each do |ing|
 
-  # end
+    #   details["#{ingredient.name}"]["quantity"] = ing.quantity
+    #   details["#{ingredient.name}"]["measurement"] = ing.measurement
+    #   # value["measurement"] =ing.measurement
+
+
+    # end
+
+    # meal_ingredients.each do |ing|
+    #   details.each do |key, value|
+    #     key["quantity"] = ing.quantity
+    #   end
+    # end
+
+
+    details
+
+  end
 
 end
 
