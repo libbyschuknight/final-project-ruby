@@ -8,22 +8,31 @@ class Meal < ActiveRecord::Base
   def ingredient_details
     details = {}
 
+    # meal_ingredients.
+
+
+
     ingredients.each do |ingredient|
       details["#{ingredient.name}"] = {}
 
       details["#{ingredient.name}"]["name"] = ingredient.name
-
-
-
-      meal_ingredients.each do |ing|
-
-        details["#{ingredient.name}"]["quantity"] = ing.quantity
-        # value["measurement"] =ing.measurement
-
-
+      details["#{ingredient.name}"]["quantity"] = meal_ingredients.map do |ing|
+        ing.quantity
       end
+
     end
 
+
+
+
+    # meal_ingredients.each do |ing|
+
+    #   details["#{ingredient.name}"]["quantity"] = ing.quantity
+    #   details["#{ingredient.name}"]["measurement"] = ing.measurement
+    #   # value["measurement"] =ing.measurement
+
+
+    # end
 
     # details.each do |key, value|
 
