@@ -16,6 +16,7 @@
 
   <% @meal.meal_ingredients.each do |ingredient|  %>
     <%= ingredient.quantity%>
+    <%= ingredient.measurement%>
   <% end %>
 
 <p><%= @ingredient_details %>

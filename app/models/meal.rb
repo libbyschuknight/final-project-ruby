@@ -8,20 +8,27 @@ class Meal < ActiveRecord::Base
   def ingredient_details
     details = {}
 
-    # meal_ingredients.
-
-
+      # ingredients.each do |ingredient|
+      #   details["#{ingredient.name}"] = {}
+      #   details["#{ingredient.name}"]["name"] = ingredient.name
+      # end
 
     ingredients.each do |ingredient|
-      details["#{ingredient.name}"] = {}
-
-      details["#{ingredient.name}"]["name"] = ingredient.name
-      details["#{ingredient.name}"]["quantity"] = meal_ingredients.map do |ing|
-        ing.quantity
-      end
-
+      details["#{ingredient.id}"] = {}
+      details["#{ingredient.id}"]["name"] = ingredient.name
     end
 
+    # details.map do |key, value|
+    #   meal_ingredients.each do |ing|
+    #     details[key]["quantity"] = ing.quantity
+    #     details[key]["measurement"] = ing.measurement
+    #   end
+    # end
+
+    details.each do |key, value|
+      details[key]["quantity"] = MealIngredient.find(key).quantity
+      details[key]["measurement"] = MealIngredient.find(key).measurement
+    end
 
 
 
@@ -34,9 +41,14 @@ class Meal < ActiveRecord::Base
 
     # end
 
-    # details.each do |key, value|
-
+    # meal_ingredients.each do |ing|
+    #   details.each do |key, value|
+    #     key["quantity"] = ing.quantity
+    #   end
     # end
+
+
+
 
     # books[:matz]  = "The Ruby Language"
 
