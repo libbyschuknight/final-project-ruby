@@ -16,8 +16,8 @@ RSpec.describe Meal, type: :model do
       expected_result = {
         "spaghetti" => {
           "name" => "spaghetti",
-          "quantity" => 250.0,
-          "measurement"=>"whole"
+          "quantity" => 1.5,
+          "measurement"=>"half"
         },
         "tomato sause" => {
           "name" => "tomato sause",
