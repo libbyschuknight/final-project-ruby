@@ -24,6 +24,12 @@ RSpec.describe IngredientDetail, type: :model do
       expect(ingredient_detail.measurement).to eq(2)
     end
 
+    it "can be created from a meal ingredient" do
+      meal_ingredient = instance_double("MealIngredient", name: "eggs", quantity: 3, measurement: 3)
+      expect(IngredientDetail).to receive(:new).with({ name: "eggs", quantity: 3, measurement: 3 })
+      IngredientDetail.from_a_meal_ingredient(meal_ingredient)
+    end
+
   end
 
 end
