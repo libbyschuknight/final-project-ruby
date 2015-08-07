@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  resources :meal_ingredients
   root to: 'meals#index'
-  # change routes - look at making api routes like  JSON api example
 
   resources :meals
+
+  # thinking about whether need nested routes for ingredients and meal_ingredients? Do I need the routes at all? yes? - to get params? and for creation of ingredients and ingredients for specific meal
+  # thinking I don't need these routes
   resources :ingredients
+  resources :meal_ingredients
+
+
+
+  # change routes - look at making api routes like  JSON api example
+
 
 
 

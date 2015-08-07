@@ -16,6 +16,9 @@ RSpec.describe MealsController, type: :controller do
       get :index, meals: @meals
       expect(assigns(:meals)).to eq(@meals)
     end
+
+    # http status test
+    #renders template
   end
 
 
