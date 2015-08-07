@@ -7,18 +7,8 @@ class Meal < ActiveRecord::Base
   def ingredient_details
     details = meal_ingredients.includes(:ingredient)
     details.each_with_object([]) do |detail, result|
-      result << detail_object(detail)
+      result << IngredientDetail.from_a_meal_ingredient(detail)
     end
-  end
-
-private
-
-  def detail_object(detail)
-    IngredientDetail.new({
-      name:         detail.ingredient.name,
-      quantity:     detail.quantity,
-      measurement:  detail.measurement
-    })
   end
 
 end
