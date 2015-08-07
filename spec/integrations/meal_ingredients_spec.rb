@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "meal ingredient details", type: :integration do
+RSpec.describe "a meal's ingredient details", type: :integration do
 
   it "gives back a collection of meal ingredient details", slow: :db do
     meal = FactoryGirl.create(:meal,
