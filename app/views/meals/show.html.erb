@@ -10,14 +10,13 @@
   <p>Likes: <%= @meal.likes %> </p>
   <p>Dislikes: <%= @meal.dislikes %> </p>
 
-  <% @meal.ingredients.each do |ingredient|  %>
-    <%= ingredient.name %>
-  <% end %>
-
-  <% @meal.meal_ingredients.each do |ingredient|  %>
-    <%= ingredient.quantity%>
-    <%= ingredient.measurement%>
-  <% end %>
-
-<p><%= @ingredient_details %>
-
+  <p>From new class</p>
+  <ul>
+    <% @ingredient_details.each do |ingredient| %>
+    <li>
+      <%= ingredient.name %>
+      <%= ingredient.quantity %>
+      <%= ingredient.measurement %>
+    </li>
+    <% end %>
+  </ul>
