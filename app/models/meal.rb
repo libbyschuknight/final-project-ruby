@@ -14,10 +14,11 @@ class Meal < ActiveRecord::Base
 private
 
   def detail_object(detail)
-    name        = detail.ingredient.name
-    quantity    = detail.quantity
-    measurement = detail.measurement
-    { "name" => name, "quantity" => quantity, "measurement" => measurement }
+    IngredientDetail.new({
+      name:         detail.ingredient.name,
+      quantity:     detail.quantity,
+      measurement:  detail.measurement
+    })
   end
 
 end
