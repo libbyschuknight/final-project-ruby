@@ -13,18 +13,18 @@ RSpec.describe Meal, type: :model do
       meal_ingredient_1 = FactoryGirl.create(:meal_ingredient, measurement: "half", ingredient: pasta, meal: meal)
       meal_ingredient_2 = FactoryGirl.create(:meal_ingredient, quantity: 250, ingredient: sause, meal: meal)
 
-      expected_result = {
-        "spaghetti" => {
+      expected_result = [
+        {
           "name" => "spaghetti",
           "quantity" => 1.5,
           "measurement"=>"half"
         },
-        "tomato sause" => {
+        {
           "name" => "tomato sause",
           "quantity" => 250.0,
           "measurement" => "whole"
         }
-      }
+      ]
 
       expect(meal.ingredient_details).to eq(expected_result)
     end

@@ -6,15 +6,14 @@ class Meal < ActiveRecord::Base
 
   def ingredient_details
     details = meal_ingredients.includes(:ingredient)
-    details.each_with_object({}) do |detail, result|
-      name = detail.ingredient.name
-      result[name] = detail_object(name, detail)
+    details.each_with_object([]) do |detail, result|
+      result << detail_object(detail)
     end
   end
 
 private
 
-  def detail_object(name, detail)
+  def detail_object(detail)
     name        = detail.ingredient.name
     quantity    = detail.quantity
     measurement = detail.measurement
