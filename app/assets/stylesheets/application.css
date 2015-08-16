@@ -20,12 +20,52 @@
 }
 */
 
+
+html, body, .thumbnail, .caption {
+  font-family: 'Montserrat', sans-serif;
+  color: #118C4E;
+  background-color: #F5F3EE;
+}
+
+
 body {
   margin: auto 0;
 }
 
 .center-img {
   text-align: center;
+}
+
+.thumbnail .caption {
+  color: #118C4E;
+}
+
+.background-jumbo {
+  background-color: #118C4E;
+  /*opacity: 0.5;*/
+}
+
+
+.jumbotron {
+  /*text-align: center;*/
+  color: #F5F3EE;
+}
+
+.jumbotron a {
+  /*text-align: center;*/
+  color: #83CC38;
+}
+
+
+
+
+/*.jumbotron h1 {
+  font-size: 7em;
+}*/
+
+.jumbotron p {
+  color: #F5F3EE;
+
 }
 
 .meal-home img {
@@ -35,3 +75,66 @@ body {
 .imageBoxShadow img, .contact-height img{
   box-shadow: 0 8px 6px -6px black;
 }
+
+
+/* ### Navigation #### */
+
+.navbar-inverse {
+  color: #000;
+  background-image: linear-gradient(to bottom,#118C4E 0,#118C4E 100%);
+  border-color: #118C4E;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: #83CC38;
+}
+
+.navbar-inverse .navbar-brand>a:hover {
+  color: #83CC38;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #83CC38;
+}
+
+
+.navbar-brand img {
+  width: 45px;
+}
+
+
+/* #### Buttons Styling ### */
+
+ .btn-primary {
+  background: #118C4E;
+  /*border: 2px solid #1D4D4A;*/
+  color: #F5F3EE;
+  text-shadow: none;
+ }
+
+
+  .btn-primary:hover, .btn-primary:focus, .open > .dropdown-toggle.btn-primary {
+    background: #F5F3EE;
+    border-color: #118C4E;
+    color: #118C4E;
+  }
+
+  .btn-primary:active, .btn-primary.active {
+    border-color: #39c0ba;
+    box-shadow: none;
+  }
+
+  .btn-primary>a {
+ /*  background: #fff;
+   border: 2px solid #1D4D4A;*/
+   color: #F5F3EE;
+  }
+
+   .btn-primary>a:hover{
+    color: #4A96AD;
+    text-decoration: none;
+ }
