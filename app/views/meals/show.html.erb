@@ -1,10 +1,8 @@
-<h1>This is an individual meal page</h1>
+<h1> <%= @meal.name %> </h1>
 
-<h2> <%= @meal.name %> </h2>
+<%= image_tag @meal.imageURL, { width: "600", class: "center-img imageBoxShadow" } %>
 
-<%= image_tag @meal.imageURL, {width: "300"} %>
-
-<h4>Cooking Instructions</h4>
+<h2>Cooking Instructions</h2>
   <p> <%= @meal.cooking_instructions %> </p>
 
   <p>Likes: <%= @meal.likes %> </p>

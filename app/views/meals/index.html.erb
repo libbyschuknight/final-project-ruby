@@ -1,10 +1,40 @@
-<h2>this displays a list of the meals</h2>
+<!-- Jumbotron Header -->
+<header class="jumbotron hero-spacer">
+    <h1>Ruby PikaDish</h1>
+    <p>This is a re-creation and adaptation of the <a href="http://devacademy.co.nz/" target="_blank">Enspiral Dev Academy</a> Roa cohorts final project. The backend for the orinigal <a href="http://www.pikadish.com/#/index" target="_blank">PikaDish</a> was done in C#. I am re-doing in Ruby on Rails.</p>
+    <p>See my <a href="https://schuknight.wordpress.com/2015/07/27/phase-3-and-final-project-dev-academy/" target="_blank">blog post</a> about this for more information. Contact me via <a href="https://twitter.com/SchuKnight" target="_blank">Twitter - @schuknight</a></p>
+</header>
 
-<ul>
-  <% @meals.each do |meal| %>
-    <li class="meal-home">
-      <strong><%= meal.name %></strong>
-      <%= link_to (image_tag (meal.imageURL)), meal_path(meal) %>
-    </li>
-  <% end %>
-</ul>
+<hr>
+
+<!-- Title -->
+<div class="row">
+    <div class="col-lg-12">
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row text-center">
+
+    <% @meals.each do | meal | %>
+      <div class="col-md-3 col-sm-6 hero-feature">
+          <div class="thumbnail">
+              <%= link_to (image_tag (meal.imageURL)), meal_path(meal), :class => "meal-home imageBoxShadow" %>
+
+              <div class="caption">
+                  <h3> <%= meal.name %> </h3>
+                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                  <p>
+                    <%= link_to "View", meal_path(meal),  :class => "btn btn-primary" %>
+
+                      <!-- <a href=" '< link_to meal_path(meal) %> ' " class="btn btn-primary">View</a> -->
+                      <a href="#" class="btn btn-default">More Info</a>
+                  </p>
+              </div>
+          </div>
+      </div>
+    <% end %>
+</div>
+<!-- /.row -->
+
+

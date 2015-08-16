@@ -14,12 +14,24 @@
  *= require_self
  */
 
-* {
-  /*border: 1px solid black;*/
+/** {
+  border: 1px solid black;
   margin: 2%;
 }
+*/
 
+body {
+  margin: auto 0;
+}
+
+.center-img {
+  text-align: center;
+}
 
 .meal-home img {
-  width: 150px;
+  height: 500px;
+}
+
+.imageBoxShadow img, .contact-height img{
+  box-shadow: 0 8px 6px -6px black;
 }
