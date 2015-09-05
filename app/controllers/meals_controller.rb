@@ -5,10 +5,12 @@ class MealsController < ApplicationController
   end
 
   def show
-    @meal = Meal.find(params[:id])
-    @ingredient_details = @meal.ingredient_details
+    @meal = Meal.find_by(id: params[:id])
+
+    if @meal == nil
+      redirect_to root_path
+    else
+      @ingredient_details = @meal.ingredient_details
+    end
   end
-
-
 end
-
