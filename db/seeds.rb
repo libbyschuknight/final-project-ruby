@@ -8,6 +8,8 @@
 MealIngredient.destroy_all
 Meal.destroy_all
 Ingredient.destroy_all
+MealPlan.destroy_all
+
 
 spring_onions = Ingredient.create(name: "spring onions")
 onions = Ingredient.create(name: "onions")
@@ -45,3 +47,11 @@ MealIngredient.create(ingredient_id: feta.id, meal_id: lemon_chicken.id, quantit
 MealIngredient.create(ingredient_id: oregano.id, meal_id: lemon_chicken.id, quantity: 5, measurement: "sprigs")
 MealIngredient.create(ingredient_id: lemon.id, meal_id: lemon_chicken.id, quantity: 2, measurement: "teaspoons")
 
+mon = MealPlan.create(dayOfWeek: "Monday", eaten: false)
+tues = MealPlan.create(dayOfWeek: "Tuesday", eaten: false)
+wed = MealPlan.create(dayOfWeek: "Wednesday", eaten: false)
+fri = MealPlan.create(dayOfWeek: "Friday", eaten: false)
+
+beef_noodle.update(meal_plan_id: mon.id)
+pork_5.update(meal_plan_id: tues.id)
+lemon_chicken.update(meal_plan_id: fri.id)
