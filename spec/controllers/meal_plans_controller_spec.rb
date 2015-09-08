@@ -16,6 +16,5 @@ RSpec.describe MealPlansController, type: :controller do
 
       expect(assigns(:meal_plans)).to eq(@meal_plans)
     end
-
   end
 end
