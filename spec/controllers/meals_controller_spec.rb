@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe MealsController, type: :controller do
-
   before do
     Meal.destroy_all
   end
@@ -36,13 +35,11 @@ RSpec.describe MealsController, type: :controller do
     end
 
     context "when meal does not exist" do
-      before {get :show, id: @meal.id-1}
+      before { get :show, id: @meal.id - 1 }
 
       it "redirects to home page" do
         expect(response).to redirect_to(root_path)
       end
-
     end
-
   end
 end

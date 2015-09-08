@@ -1,5 +1,4 @@
 class Meal < ActiveRecord::Base
-
   has_many :meal_ingredients
   has_many :ingredients, through: :meal_ingredients
   belongs_to :meal_plan
@@ -10,5 +9,4 @@ class Meal < ActiveRecord::Base
       result << IngredientDetail.from_a_meal_ingredient(detail)
     end
   end
-
 end
