@@ -10,19 +10,17 @@ Meal.destroy_all
 Ingredient.destroy_all
 MealPlan.destroy_all
 
-
 spring_onions = Ingredient.create(name: "spring onions")
 onions = Ingredient.create(name: "onions")
 beef = Ingredient.create(name: "beef fillet")
 soy = Ingredient.create(name: "soy sauce")
 rice = Ingredient.create(name: "jasmine rice")
 pork = Ingredient.create(name: "pork fillet")
-kumera = Ingredient.create(name: "kumera")
+kumara = Ingredient.create(name: "kumara")
 chicken = Ingredient.create(name: "chicken")
 feta = Ingredient.create(name: "feta")
 oregano = Ingredient.create(name: "oregano")
 lemon = Ingredient.create(name: "lemon")
-
 
 beef_noodle = Meal.create(name: "Beef Noodle Soup", imageURL: "http://cdmc.mkcsites.com/~/media/Recipe-Photos/Gourmet/Soups-Stews/1007x545/Vietnamese-Beef-Noodle-Soup_Recipes_1007x545.ashx", cooking_instructions: "Bring stock, soy sauce and spices just to boil in large saucepan. Reduce heat to medium-low; simmer 30 minutes. Remove cloves and cinnamon sticks. Return stock to boil. Cook rice noodles as directed on package. Divide among 4 shallow soup bowls. Cut beef across the grain into thin slices. Divide beef slices, green onions and bean sprouts among the bowls. Pour boiling stock (about 1 cup) into each bowl. Serve with lime wedges, cilantro and mint.", likes: 0, dislikes: 0)
 
@@ -39,7 +37,6 @@ MealIngredient.create(ingredient_id: rice.id, meal_id: beef_noodle.id, quantity:
 
 MealIngredient.create(ingredient_id: spring_onions.id, meal_id: pork_5.id, quantity: 2, measurement: "whole")
 MealIngredient.create(ingredient_id: pork.id, meal_id: pork_5.id, quantity: 300, measurement: "grams")
-
 
 
 MealIngredient.create(ingredient_id: chicken.id, meal_id: lemon_chicken.id, quantity: 200, measurement: "grams")
