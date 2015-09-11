@@ -12,9 +12,15 @@ RSpec.feature "UserCanViewMealPlans", type: :feature do
       # let(:article) { FactoryGirl.create(:article, title: "Bananas") }
 
       # create meal plans and associate with meals - Mon, Tues, Fri
-      FactoryGirl.create(:meal_plan, dayOfWeek: "Monday")
-      FactoryGirl.create(:meal_plan, dayOfWeek: "Tuesday")
-      FactoryGirl.create(:meal_plan, dayOfWeek: "Friday")
+      mon = FactoryGirl.create(:meal_plan, dayOfWeek: "Monday")
+      tues = FactoryGirl.create(:meal_plan, dayOfWeek: "Tuesday")
+      fri = FactoryGirl.create(:meal_plan, dayOfWeek: "Friday")
+
+      @meal1.update(meal_plan_id: mon.id)
+      ## does not work if there is a meal_plan with no meal
+      ## would there ever be a meal_plan with no meal?
+      @meal2.update(meal_plan_id: tues.id)
+      # @meal3.update(meal_plan_id: fri.id)
 
 
     end

@@ -51,4 +51,5 @@ fri = MealPlan.create(dayOfWeek: "Friday", eaten: false)
 
 beef_noodle.update(meal_plan_id: mon.id)
 pork_5.update(meal_plan_id: tues.id)
+
 lemon_chicken.update(meal_plan_id: fri.id)
