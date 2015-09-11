@@ -1,0 +1,7 @@
+<h1>Meal Plan</h1>
+
+  <ul>
+    <% @meal_plans.each do |meal_plan| %>
+      <li> <%= meal_plan.meal.name %> </li>
+    <% end %>
+  </ul>

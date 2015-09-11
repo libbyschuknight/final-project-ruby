@@ -6,5 +6,4 @@ FactoryGirl.define do
     likes 1
     dislikes 2
   end
-
 end
