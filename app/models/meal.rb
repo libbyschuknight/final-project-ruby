@@ -9,4 +9,12 @@ class Meal < ActiveRecord::Base
       result << IngredientDetail.from_a_meal_ingredient(detail)
     end
   end
+
+  def self.meal_name
+    if Meal.new == nil
+      "no meal"
+    else
+      Meal.new.name
+    end
+  end
 end
