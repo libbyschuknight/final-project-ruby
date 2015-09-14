@@ -7,7 +7,13 @@
       <% if meal_plan.meal.nil? %>
         <li> &nbsp; </li>
       <% else %>
-        <li> <%= meal_plan.meal.name %> </li>
+        <li> <%= link_to meal_plan.meal.name, meal_path(meal_plan.meal) %> </li>
+        <li>
+          <div class="thumbnail meal-plan">
+              <%= link_to (image_tag (meal_plan.meal.imageURL)), meal_path(meal_plan.meal), :class => "imageBoxShadow" %>
+          </div>
+
+        </li>
       <% end %>
     </ul>
   <% end %>

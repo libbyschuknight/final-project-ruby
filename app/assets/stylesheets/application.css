@@ -40,11 +40,14 @@ body {
   color: #118C4E;
 }
 
+.meal-plan {
+  width: 300px;
+}
+
 .background-jumbo {
   background-color: #118C4E;
   /*opacity: 0.5;*/
 }
-
 
 .jumbotron {
   /*text-align: center;*/
@@ -55,8 +58,6 @@ body {
   /*text-align: center;*/
   color: #83CC38;
 }
-
-
 
 
 /*.jumbotron h1 {
@@ -71,6 +72,8 @@ body {
 .meal-home img {
   height: 500px;
 }
+
+
 
 .imageBoxShadow img, .contact-height img{
   box-shadow: 0 8px 6px -6px black;
