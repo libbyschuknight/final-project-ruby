@@ -1,5 +1,4 @@
 class MealsController < ApplicationController
-
   def index
     @meals = Meal.all
   end
@@ -7,7 +6,7 @@ class MealsController < ApplicationController
   def show
     @meal = Meal.find_by(id: params[:id])
 
-    if @meal == nil
+    if @meal.nil?
       redirect_to root_path
     else
       @ingredient_details = @meal.ingredient_details

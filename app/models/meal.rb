@@ -1,8 +1,7 @@
 class Meal < ActiveRecord::Base
-
   has_many :meal_ingredients
   has_many :ingredients, through: :meal_ingredients
-  belongs_to :mealPlan
+  belongs_to :meal_plan
 
   def ingredient_details
     details = meal_ingredients.includes(:ingredient)
@@ -11,4 +10,11 @@ class Meal < ActiveRecord::Base
     end
   end
 
+  def self.meal_name
+    if Meal.new == nil
+      "no meal"
+    else
+      Meal.new.name
+    end
+  end
 end

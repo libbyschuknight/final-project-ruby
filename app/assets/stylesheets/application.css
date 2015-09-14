@@ -32,6 +32,11 @@ body {
   margin: auto 0;
 }
 
+
+h3 {
+  font-size: 18px;
+}
+
 .center-img {
   text-align: center;
 }
@@ -40,23 +45,28 @@ body {
   color: #118C4E;
 }
 
+.meal-plan {
+  width: 300px;
+}
+
 .background-jumbo {
   background-color: #118C4E;
   /*opacity: 0.5;*/
 }
-
 
 .jumbotron {
   /*text-align: center;*/
   color: #F5F3EE;
 }
 
+.jumbotron h1 {
+  font-size: 50px;
+}
+
 .jumbotron a {
   /*text-align: center;*/
   color: #83CC38;
 }
-
-
 
 
 /*.jumbotron h1 {
@@ -72,9 +82,27 @@ body {
   height: 500px;
 }
 
+
+
 .imageBoxShadow img, .contact-height img{
   box-shadow: 0 8px 6px -6px black;
 }
+
+
+/* Meal Plan Page */
+
+.meal_plan ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: inline-block;
+}
+
+/*.meal_plan ul li {
+  margin: 20px;
+}
+*/
 
 
 /* ### Navigation #### */

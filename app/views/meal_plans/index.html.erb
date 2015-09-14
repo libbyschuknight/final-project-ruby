@@ -1,0 +1,20 @@
+<h1>Meal Plan</h1>
+
+<div class = "meal_plan">
+  <% @meal_plans.each do |meal_plan| %>
+    <ul>
+      <strong><li> <%= meal_plan.dayOfWeek %> </li></strong>
+      <% if meal_plan.meal.nil? %>
+        <li> &nbsp; </li>
+      <% else %>
+        <li> <%= link_to meal_plan.meal.name, meal_path(meal_plan.meal) %> </li>
+        <li>
+          <div class="thumbnail meal-plan">
+              <%= link_to (image_tag (meal_plan.meal.imageURL)), meal_path(meal_plan.meal), :class => "imageBoxShadow" %>
+          </div>
+
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
