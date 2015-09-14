@@ -32,6 +32,11 @@ body {
   margin: auto 0;
 }
 
+
+h3 {
+  font-size: 18px;
+}
+
 .center-img {
   text-align: center;
 }
@@ -52,6 +57,10 @@ body {
 .jumbotron {
   /*text-align: center;*/
   color: #F5F3EE;
+}
+
+.jumbotron h1 {
+  font-size: 50px;
 }
 
 .jumbotron a {
