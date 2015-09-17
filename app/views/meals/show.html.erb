@@ -1,38 +1,46 @@
 
-<div class = "col-md-8">
-  <h1> <%= @meal.name %> </h1>
-</div>
+<div class = "row">
+  <div class = "col-md-8">
+    <h1> <%= @meal.name %> </h1>
+  </div>
 
-<div class = "col-md-4">
-  <h2>Ingredients</h2>
+  <div class = "col-md-4">
+    <h3>Ingredients</h3>
+  </div>
 </div>
 
 <div class = "row show-img imageBoxShadow">
   <div class = "col-md-8">
     <%= image_tag @meal.imageURL, { class: "center-block imageBoxShadow" } %>
-  </div>
 
-  <div class = "col-md-4">
-    <ul>
-      <% @ingredient_details.each do |ingredient| %>
-      <li>
-        <%= ingredient.name %>
-        <%= ingredient.quantity %>
-        <%= ingredient.measurement %>
-      </li>
-      <% end %>
-    </ul>
+
+    <h3>How to Cook</h3>
+      <p> <%= @meal.cooking_instructions %> </p>
+
+      <p>Likes: <%= @meal.likes %> </p>
+      <p>Dislikes: <%= @meal.dislikes %> </p>
+
   </div>
 
 
-</div>
+  <div class="col-md-4" >
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Ingredient</th>
+          <th>Quantity</th>
+          <th>Measurement</th>
+        </tr>
+      </thead>
 
-
-
-<h2>How to Cook</h2>
-  <p> <%= @meal.cooking_instructions %> </p>
-
-  <p>Likes: <%= @meal.likes %> </p>
-  <p>Dislikes: <%= @meal.dislikes %> </p>
-
-
+      <tbody>
+        <% @ingredient_details.each do |ingredient| %>
+          <tr>
+            <td><%= ingredient.name %> &nbsp;</td>
+            <td><%= ingredient.quantity %> &nbsp;</td>
+            <td><%= ingredient.measurement %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
