@@ -1,20 +1,38 @@
-<h1> <%= @meal.name %> </h1>
 
-<%= image_tag @meal.imageURL, { width: "600", class: "center-img imageBoxShadow" } %>
+<div class = "col-md-8">
+  <h1> <%= @meal.name %> </h1>
+</div>
 
-<h2>Cooking Instructions</h2>
+<div class = "col-md-4">
+  <h2>Ingredients</h2>
+</div>
+
+<div class = "row show-img imageBoxShadow">
+  <div class = "col-md-8">
+    <%= image_tag @meal.imageURL, { class: "center-block imageBoxShadow" } %>
+  </div>
+
+  <div class = "col-md-4">
+    <ul>
+      <% @ingredient_details.each do |ingredient| %>
+      <li>
+        <%= ingredient.name %>
+        <%= ingredient.quantity %>
+        <%= ingredient.measurement %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+<h2>How to Cook</h2>
   <p> <%= @meal.cooking_instructions %> </p>
 
   <p>Likes: <%= @meal.likes %> </p>
   <p>Dislikes: <%= @meal.dislikes %> </p>
 
-  <p>From new class</p>
-  <ul>
-    <% @ingredient_details.each do |ingredient| %>
-    <li>
-      <%= ingredient.name %>
-      <%= ingredient.quantity %>
-      <%= ingredient.measurement %>
-    </li>
-    <% end %>
-  </ul>
+

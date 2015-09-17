@@ -19,6 +19,7 @@
   margin: 2%;
 }
 */
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 
 html, body, .thumbnail, .caption {
@@ -83,11 +84,14 @@ h3 {
 }
 
 
-
 .imageBoxShadow img, .contact-height img{
   box-shadow: 0 8px 6px -6px black;
 }
 
+.show-img img {
+  width: 400px;
+  text-align: center;
+}
 
 /* Meal Plan Page */
 
