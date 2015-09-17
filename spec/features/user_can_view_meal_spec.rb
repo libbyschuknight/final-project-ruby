@@ -29,7 +29,6 @@ feature "User can view a meal" do
     visit meal_path(@meal)
   end
 
-
   scenario "it shows a meals' details" do
     # save_and_open_page
     # puts page.body
@@ -43,11 +42,8 @@ feature "User can view a meal" do
     # expect(page).to have_xpath("//image[@src = 'http://www.taste.com.au/images/recipes/agt/2006/12/14680_l.jpg']")
   end
 
-
   scenario "it shows the ingredient details" do
     expect(page).to have_content("spring onions")
     expect(page).to have_content("5.0")
   end
-
 end
-
