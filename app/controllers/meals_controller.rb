@@ -12,4 +12,7 @@ class MealsController < ApplicationController
       @ingredient_details = @meal.ingredient_details
     end
   end
+
+  def new
+  end
 end

@@ -42,4 +42,14 @@ RSpec.describe MealsController, type: :controller do
       end
     end
   end
+
+  describe "#new" do
+    before do
+      get :new
+    end
+
+    it "returns a new meal page" do
+      expect(response).to render_template(:new)
+    end
+  end
 end
