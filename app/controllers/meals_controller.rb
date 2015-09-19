@@ -14,5 +14,6 @@ class MealsController < ApplicationController
   end
 
   def new
+    @meal = Meal.new
   end
 end

@@ -51,5 +51,10 @@ RSpec.describe MealsController, type: :controller do
     it "returns a new meal page" do
       expect(response).to render_template(:new)
     end
+
+    it "assigns an instance of Meal to @meal" do
+      expect(assigns(:meal)).to be_an_instance_of(Meal)
+    end
+
   end
 end
