@@ -16,4 +16,19 @@ class MealsController < ApplicationController
   def new
     @meal = Meal.new
   end
+
+  def create
+    @meal = Meal.new(meal_params)
+    @meal.save ? redirect_to(@meal) : redirect_to(new_meal_path)
+  end
+
+  private
+
+  def meal_params
+    params.require(:meal).permit(:name,
+                                 :imageURL,
+                                 :cooking_instructions,
+                                 :likes,
+                                 :dislikes)
+  end
 end

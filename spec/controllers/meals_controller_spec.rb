@@ -55,6 +55,21 @@ RSpec.describe MealsController, type: :controller do
     it "assigns an instance of Meal to @meal" do
       expect(assigns(:meal)).to be_an_instance_of(Meal)
     end
+  end
 
+  describe "#create" do
+    before do
+      @valid_params = FactoryGirl.attributes_for(:meal)
+      post :create, { :meal => @valid_params }
+      @meal = Meal.find_by(@valid_params)
+    end
+
+    it "creates a new meal" do
+      expect(@meal).to be_truthy
+    end
+
+    it "redirects to show meal details" do
+      expect(response).to redirect_to(meal_path(@meal))
+    end
   end
 end
