@@ -40,6 +40,10 @@ RSpec.describe MealsController, type: :controller do
       it "redirects to home page" do
         expect(response).to redirect_to(root_path)
       end
+
+      it "sets an error message in flash" do
+        expect(flash[:error]).to_not be_nil
+      end
     end
   end
 
@@ -84,6 +88,10 @@ RSpec.describe MealsController, type: :controller do
 
       it "a new meal is not created" do
         expect(@meal).to be_falsey
+      end
+
+      it "redirects to the new meal page" do
+        expect(response).to redirect_to(new_meal_path)
       end
     end
   end
