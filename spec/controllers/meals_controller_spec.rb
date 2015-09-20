@@ -58,18 +58,33 @@ RSpec.describe MealsController, type: :controller do
   end
 
   describe "#create" do
-    before do
-      @valid_params = FactoryGirl.attributes_for(:meal)
-      post :create, { :meal => @valid_params }
-      @meal = Meal.find_by(@valid_params)
+    context "if parameters are valid" do
+      before do
+        @valid_params = FactoryGirl.attributes_for(:meal)
+        post :create, { :meal => @valid_params }
+        @meal = Meal.find_by(@valid_params)
+      end
+
+      it "creates a new meal" do
+        expect(@meal).to be_truthy
+      end
+
+      it "redirects to show meal details" do
+        expect(response).to redirect_to(meal_path(@meal))
+      end
     end
 
-    it "creates a new meal" do
-      expect(@meal).to be_truthy
-    end
+    context "if parameters are invalid" do
+      before do
+        @invalid_params = FactoryGirl.attributes_for(:meal, name: "",
+          cooking_instructions: "")
+        post :create, { :meal => @invalid_params }
+        @meal = Meal.find_by(@invalid_params)
+      end
 
-    it "redirects to show meal details" do
-      expect(response).to redirect_to(meal_path(@meal))
+      it "a new meal is not created" do
+        expect(@meal).to be_falsey
+      end
     end
   end
 end
