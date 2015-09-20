@@ -38,4 +38,11 @@ feature "User can view a list of meals on the home page" do
 
     expect(page).to have_content("Meal Plan")
   end
+
+  scenario "can click on 'Create new meal' link, redirected to a new meal page" do
+    visit meals_path(@meals)
+    click_on("Create new meal")
+
+    expect(page).to have_content("Create a new meal")
+  end
 end
