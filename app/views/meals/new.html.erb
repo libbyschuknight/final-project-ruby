@@ -1,20 +1,14 @@
 <h1>Create a new meal</h1>
 
 <%= form_for @meal do |f| %>
-  <li class="meal_name">
-    <%= f.label "Meal Name" %>
-    <%= f.text_area :name, { class: "form-control" } %>
-  </li>
+  <%= f.label :title, "Meal Name", class: "meal_name" %>
+  <%= f.text_area :name, { class: "form-control" } %>
 
-  <li>
-    <%= f.label "Cooking Instructions" %>
-    <%= f.text_area :cooking_instructions, { class: "form-control" } %>
-  </li>
+  <%= f.label :title, "Cooking Instructions" %>
+  <%= f.text_area :cooking_instructions, { class: "form-control" } %>
 
-  <li>
-    <%= f.label :imageURL %>
-    <%= f.text_area :imageURL, { class: "form-control" } %>
-  </li>
+  <%= f.label "Image" %>
+  <%= f.text_area :imageURL, { class: "form-control" } %>
 
   <h3>Add an Ingredient</h3>
   <p>NB: Need to add abilitty to add a new ingredient with quanity and measurement</p>
