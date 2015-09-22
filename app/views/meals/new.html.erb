@@ -1,0 +1,19 @@
+<h1>Create a new meal</h1>
+
+<%= form_for @meal do |f| %>
+  <%= f.label :title, "Meal Name", class: "meal_name" %>
+  <%= f.text_area :name, { class: "form-control" } %>
+
+  <%= f.label :title, "Cooking Instructions" %>
+  <%= f.text_area :cooking_instructions, { class: "form-control" } %>
+
+  <%= f.label "Image" %>
+  <%= f.text_area :imageURL, { class: "form-control" } %>
+
+  <h3>Add an Ingredient</h3>
+  <p>NB: Need to add abilitty to add a new ingredient with quanity and measurement</p>
+  <p>Would be good to be able to display each ingredient once it has been added</p>
+  <p> </p>
+
+  <%= f.submit "Create Meal" %>
+<% end %>

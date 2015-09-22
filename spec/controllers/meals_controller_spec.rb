@@ -40,6 +40,59 @@ RSpec.describe MealsController, type: :controller do
       it "redirects to home page" do
         expect(response).to redirect_to(root_path)
       end
+
+      it "sets an error message in flash" do
+        expect(flash[:error]).to_not be_nil
+      end
+    end
+  end
+
+  describe "#new" do
+    before do
+      get :new
+    end
+
+    it "returns a new meal page" do
+      expect(response).to render_template(:new)
+    end
+
+    it "assigns an instance of Meal to @meal" do
+      expect(assigns(:meal)).to be_an_instance_of(Meal)
+    end
+  end
+
+  describe "#create" do
+    context "if parameters are valid" do
+      before do
+        @valid_params = FactoryGirl.attributes_for(:meal)
+        post :create, { :meal => @valid_params }
+        @meal = Meal.find_by(@valid_params)
+      end
+
+      it "creates a new meal" do
+        expect(@meal).to be_truthy
+      end
+
+      it "redirects to show meal details" do
+        expect(response).to redirect_to(meal_path(@meal))
+      end
+    end
+
+    context "if parameters are invalid" do
+      before do
+        @invalid_params = FactoryGirl.attributes_for(:meal, name: "",
+          cooking_instructions: "")
+        post :create, { :meal => @invalid_params }
+        @meal = Meal.find_by(@invalid_params)
+      end
+
+      it "a new meal is not created" do
+        expect(@meal).to be_falsey
+      end
+
+      it "redirects to the new meal page" do
+        expect(response).to redirect_to(new_meal_path)
+      end
     end
   end
 end
