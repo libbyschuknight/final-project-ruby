@@ -20,7 +20,12 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new(meal_params)
-    @meal.save ? redirect_to(@meal) : redirect_to(new_meal_path)
+    # @meal.save ? redirect_to(@meal) : redirect_to(new_meal_path)
+    if @meal.save
+      redirect_to(@meal)
+    else
+      redirect_to(new_meal_path)
+    end
   end
 
   private
