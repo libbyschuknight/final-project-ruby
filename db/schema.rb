@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905234842) do
+ActiveRecord::Schema.define(version: 20150922213542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 20150905234842) do
     t.string   "name"
     t.string   "imageURL"
     t.text     "cooking_instructions"
-    t.integer  "likes"
-    t.integer  "dislikes"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "likes",                default: 0
+    t.integer  "dislikes",             default: 0
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "meals", ["meal_plan_id"], name: "index_meals_on_meal_plan_id", using: :btree
