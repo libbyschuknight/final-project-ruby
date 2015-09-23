@@ -2,13 +2,13 @@
 
 <%= form_for @meal do |f| %>
   <%= f.label :title, "Meal Name", class: "meal_name" %>
-  <%= f.text_area :name, { class: "form-control" } %>
+  <%= f.text_area :name, { placeholder: "Meal Name", class: "form-control" } %>
 
   <%= f.label :title, "Cooking Instructions" %>
-  <%= f.text_area :cooking_instructions, { class: "form-control" } %>
+  <%= f.text_area :cooking_instructions, { placeholder: "Cooking Instructions", class: "form-control" } %>
 
   <%= f.label "Image" %>
-  <%= f.text_area :imageURL, { class: "form-control" } %>
+  <%= f.text_area :imageURL, { placeholder: "Image", class: "form-control" } %>
 
   <h3>Add an Ingredient</h3>
   <p>NB: Need to add abilitty to add a new ingredient with quanity and measurement</p>
