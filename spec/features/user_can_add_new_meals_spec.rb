@@ -25,7 +25,7 @@ RSpec.feature "A user can add a new meal", type: :feature do
     expect(page).to have_content("This is where the cooking instructions would go.")
   end
 
-  scenario "user can add image to a meal"  do
+  scenario "user can add image to a meal" do
     expect(page).to have_css("img[src*='http://rasamalaysia.com/images/mee-goreng/meegorengrm.jpg']")
   end
 
