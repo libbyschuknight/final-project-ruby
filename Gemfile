@@ -61,5 +61,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5.0'
 
   gem 'launchy', '~> 2.4.3'
+  gem 'awesome_print'
 end
 
