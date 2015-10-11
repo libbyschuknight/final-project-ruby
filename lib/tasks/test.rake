@@ -1,14 +1,26 @@
+require 'csv'
+
 namespace :test do
   desc "create model"
-  task create_model: :environment do
-    @meal = Meal.create(name: "beef stuff")
+  task run: :environment do
+    CSV.open("meal.csv", "wb") do |csv|
 
-  end
+      Meal.all.each do |meal|
+        csv << meal.attributes.values
+      end
 
+      Ingredient.all.each do |ing|
+        csv << ing.attributes.values
+      end
 
-  desc "TODO"
-  task ar_model: [:create_model]  do
-    p @meal
+      MealPlan.all.each do |plan|
+        csv << plan.attributes.values
+      end
 
+      MealIngredient.all.each do |ing|
+        csv << ing.attributes.values
+      end
+
+    end
   end
 end
