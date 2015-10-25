@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726213432) do
+ActiveRecord::Schema.define(version: 20151025072042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,15 @@ ActiveRecord::Schema.define(version: 20150726213432) do
   add_index "meal_ingredients", ["ingredient_id"], name: "index_meal_ingredients_on_ingredient_id", using: :btree
   add_index "meal_ingredients", ["meal_id"], name: "index_meal_ingredients_on_meal_id", using: :btree
 
+  create_table "meal_plans", force: :cascade do |t|
+    t.string   "dayOfWeek"
+    t.boolean  "eaten"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "meals", force: :cascade do |t|
-    t.integer  "mealPlan_id"
+    t.integer  "meal_plan_id"
     t.string   "name"
     t.string   "imageURL"
     t.text     "cooking_instructions"
@@ -45,7 +52,15 @@ ActiveRecord::Schema.define(version: 20150726213432) do
     t.datetime "updated_at",           null: false
   end
 
-  add_index "meals", ["mealPlan_id"], name: "index_meals_on_mealPlan_id", using: :btree
+  add_index "meals", ["meal_plan_id"], name: "index_meals_on_meal_plan_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   add_foreign_key "meal_ingredients", "ingredients"
   add_foreign_key "meal_ingredients", "meals"
