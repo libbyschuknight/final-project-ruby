@@ -6,6 +6,7 @@ class MealsController < ApplicationController
   def show
     @meal = Meal.find_by(id: params[:id])
 
+
     if @meal.nil?
       flash[:error] = "Meal not found"
       redirect_to root_path

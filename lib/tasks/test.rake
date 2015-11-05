@@ -20,9 +20,6 @@ namespace :test do
       MealIngredient.all.each do |ing|
         csv << ing.attributes.values
       end
-
-
-
     end
   end
 end
