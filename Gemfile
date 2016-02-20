@@ -1,3 +1,5 @@
+ruby '2.2.4'
+
 source 'https://rubygems.org'
 
 
@@ -62,4 +64,3 @@ group :development, :test do
 
   gem 'launchy', '~> 2.4.3'
 end
-
